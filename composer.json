@@ -1,14 +1,13 @@
 {
-  "name": "inilim/array",
-  "description": "array",
+  "name": "inilim/dump",
+  "description": "dump",
   "type": "library",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Inilim\\Array\\": "src/"
+      "Inilim\\Dump\\": "src/"
     },
     "files": [
-      "function.php"
     ]
   },
   "authors": [
@@ -20,8 +19,5 @@
   "prefer-stable": true,
   "require": {
     "php": "^8.2"
-  },
-  "require-dev": {
-    "phpstan/phpstan": "@stable"
   }
 }
