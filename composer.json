@@ -1,23 +1,22 @@
 {
-  "name": "inilim/dump",
-  "description": "dump",
-  "type": "library",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "Inilim\\Dump\\": "src/"
+    "name": "inilim/dump",
+    "description": "dump",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Inilim\\Dump\\": "src/"
+        },
+        "files": []
     },
-    "files": [
-    ]
-  },
-  "authors": [
-    {
-      "name": "inilim"
+    "authors": [
+        {
+            "name": "inilim"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4 | ^8.2"
     }
-  ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "require": {
-    "php": "^8.2"
-  }
 }
