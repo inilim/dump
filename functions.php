@@ -28,7 +28,7 @@ if (!\function_exists('d')) {
     function d(...$v): void
     {
         \array_map(
-            function ($i) {
+            static function ($i) {
                 \print_r($i);
                 echo PHP_EOL;
             },
@@ -39,19 +39,20 @@ if (!\function_exists('d')) {
 }
 
 if (!\function_exists('dUsage')) {
-    function dUsage()
+    function dUsage(...$v)
     {
         \d([
             'current' => \memory_get_usage(),
             'peak'    => \memory_get_peak_usage(),
+            ...$v,
         ]);
     }
 }
 
 if (!\function_exists('deUsage')) {
-    function deUsage()
+    function deUsage(...$v)
     {
-        \dUsage();
+        \dUsage(...$v);
         exit;
     }
 }
