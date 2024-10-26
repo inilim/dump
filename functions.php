@@ -1,58 +1,75 @@
 <?php
 
 if (!\function_exists('dde')) {
-    function dde(...$v): void
+    function dde(): void
     {
-        \dd(...$v);
+        \dd(...\func_get_args());
         exit();
     }
 }
 
 if (!\function_exists('dd')) {
-    function dd(...$v): void
+    /**
+     * @param mixed ...$v
+     */
+    function dd(): void
     {
-        \var_dump(...$v);
+        \var_dump(...\func_get_args());
         echo PHP_EOL;
     }
 }
 
 if (!\function_exists('de')) {
-    function de(...$v): void
+    /**
+     * @param mixed ...$v
+     */
+    function de(): void
     {
-        \d(...$v);
+        \d(...\func_get_args());
         exit();
     }
 }
 
 if (!\function_exists('d')) {
-    function d(...$v): void
+    /**
+     * @param mixed ...$v
+     */
+    function d(): void
     {
         \array_map(
             static function ($i) {
                 \print_r($i);
                 echo PHP_EOL;
             },
-            $v
+            \func_get_args()
         );
         echo PHP_EOL;
     }
 }
 
 if (!\function_exists('dUsage')) {
-    function dUsage(...$v)
+    /**
+     * @param mixed ...$v
+     */
+    function dUsage()
     {
-        \d([
-            'current' => \memory_get_usage(),
-            'peak'    => \memory_get_peak_usage(),
-            ...$v,
-        ]);
+        \d(array_merge(
+            \func_get_args(),
+            [
+                'current' => \memory_get_usage(),
+                'peak'    => \memory_get_peak_usage(),
+            ]
+        ));
     }
 }
 
 if (!\function_exists('deUsage')) {
-    function deUsage(...$v)
+    /**
+     * @param mixed ...$v
+     */
+    function deUsage()
     {
-        \dUsage(...$v);
+        \dUsage(...\func_get_args());
         exit;
     }
 }
