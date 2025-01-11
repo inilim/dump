@@ -1,6 +1,9 @@
 <?php
 
 if (!\function_exists('dde')) {
+    /**
+     * @return never
+     */
     function dde(): void
     {
         \dd(...\func_get_args());
@@ -22,6 +25,7 @@ if (!\function_exists('dd')) {
 if (!\function_exists('de')) {
     /**
      * @param mixed ...$v
+     * @return never
      */
     function de(): void
     {
@@ -66,6 +70,7 @@ if (!\function_exists('dUsage')) {
 if (!\function_exists('deUsage')) {
     /**
      * @param mixed ...$v
+     * @return never
      */
     function deUsage()
     {
