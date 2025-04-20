@@ -7,4 +7,4 @@ use Inilim\Dump\Dump;
 Dump::init();
 
 
-deUsage(1, 2, 3);
+dUsage(123123);

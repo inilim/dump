@@ -17,8 +17,14 @@ if (!\function_exists('dd')) {
      */
     function dd(): void
     {
-        \var_dump(...\func_get_args());
-        echo PHP_EOL;
+        if (\in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
+            \var_dump(...\func_get_args());
+            echo PHP_EOL;
+        } else {
+            echo '<pre style="display: block;white-space: pre;padding: 5px;overflow: initial !important;">';
+            \var_dump(...\func_get_args());
+            echo '</pre>';
+        }
     }
 }
 
@@ -40,14 +46,27 @@ if (!\function_exists('d')) {
      */
     function d(): void
     {
+        $isCLI = \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true);
+
         \array_map(
-            static function ($i) {
-                \print_r($i);
-                echo PHP_EOL;
+            static function ($i) use ($isCLI) {
+                if ($isCLI) {
+                    \print_r($i);
+                    echo PHP_EOL;
+                } else {
+                    echo '<pre style="display: block;white-space: pre;padding: 5px;overflow: initial !important;">';
+                    \print_r($i);
+                    echo '</pre>';
+                }
             },
             \func_get_args()
         );
-        echo PHP_EOL;
+
+        if ($isCLI) {
+            echo PHP_EOL;
+        } else {
+            echo '<br>';
+        }
     }
 }
 
