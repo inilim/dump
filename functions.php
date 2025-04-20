@@ -2,9 +2,10 @@
 
 if (!\function_exists('dde')) {
     /**
-     * @return never
+     * @param mixed ...$v
+     * @return void
      */
-    function dde(): void
+    function dde()
     {
         \dd(...\func_get_args());
         exit();
@@ -14,8 +15,9 @@ if (!\function_exists('dde')) {
 if (!\function_exists('dd')) {
     /**
      * @param mixed ...$v
+     * @return void
      */
-    function dd(): void
+    function dd()
     {
         if (\in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
             \var_dump(...\func_get_args());
@@ -31,9 +33,9 @@ if (!\function_exists('dd')) {
 if (!\function_exists('de')) {
     /**
      * @param mixed ...$v
-     * @return never
+     * @return void
      */
-    function de(): void
+    function de()
     {
         \d(...\func_get_args());
         exit();
@@ -43,8 +45,9 @@ if (!\function_exists('de')) {
 if (!\function_exists('d')) {
     /**
      * @param mixed ...$v
+     * @return void
      */
-    function d(): void
+    function d()
     {
         $isCLI = \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true);
 
@@ -89,7 +92,7 @@ if (!\function_exists('dUsage')) {
 if (!\function_exists('deUsage')) {
     /**
      * @param mixed ...$v
-     * @return never
+     * @return void
      */
     function deUsage()
     {
